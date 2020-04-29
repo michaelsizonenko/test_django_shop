@@ -1,0 +1,35 @@
+@import "variables";
+
+html {
+	height: 100%;
+	&.cms-toolbar-expanded {
+		// prevents pushing a sticky footer outside the vertical viewport if CMS toolbar is active
+		height: calc(100% - 46px);
+	}
+}
+body {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	main {
+		flex: 1 0 auto;
+		padding-bottom: $body-footer-margin;
+	}
+	footer {
+		flex-shrink: 0;
+		color: $body-footer-color;
+		background: $body-footer-bg;
+		padding-top: $body-footer-margin;
+		padding-bottom: $body-footer-margin;
+		a {
+			color: $body-footer-link-color;
+			text-decoration: none;
+			&:hover {
+				color: $body-footer-link-hover-color;
+			}
+			&:active {
+				color: $body-footer-link-active-color;
+			}
+		}
+	}
+}

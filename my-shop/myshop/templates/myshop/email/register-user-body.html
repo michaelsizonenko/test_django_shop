@@ -1,0 +1,6 @@
+{% extends "shop/email/register-user-body.html" %}
+{% load post_office %}
+
+{% block email-logo %}
+<img src="{% inline_image 'myshop/django-shop-logo.png' %}" width="200" style="margin: 20px auto; display: block;" />
+{% endblock %}

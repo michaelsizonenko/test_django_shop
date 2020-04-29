@@ -1,0 +1,71 @@
+{% extends "myshop/catalog/product-detail.html" %}
+{% load i18n static cms_tags sekizai_tags sass_tags %}
+
+{% block main-content %}
+
+{% addtoblock "css" %}<link href="{% sass_src 'shop/css/bsp-scrollpanel.scss' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+
+{% addtoblock "js" %}<script src="{% static 'node_modules/angular-bootstrap-plus/src/scrollpanel/scrollpanel.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% add_data "ng-requires" "bs-plus.scrollpanel" %}
+
+<div class="container">
+	<div class="row">
+		<div class="col col-md-10 offset-md-1">
+			<h1>{% render_model product "product_name" %}</h1>
+			<bsp-scrollpanel class="shop-product-detail">
+				<ul>{% for img in product.images.all %}
+					<li><img src="{{ img.url }}" alt="{{ product.product_name }}" /></li>
+				{% endfor %}</ul>
+			</bsp-scrollpanel>
+		</div>
+		<div class="col col-md-10 offset-md-1">
+			<h4>{% trans "Details" %}</h4>
+			{{ product.description|safe }}
+			<ul class="list-group mb-3">
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "Manufacturer" %}:</div>
+					<strong>{{ product.manufacturer }}</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "Battery" %}:</div>
+					<strong>{{ product.get_battery_type_display }} ({{ product.battery_capacity }} mAh)</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "RAM Storage" %}:</div>
+					<strong>{{ product.ram_storage }} MB</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "WiFi Connectivity" %}:</div>
+					<strong>{{ product.wifi_connectivity }}</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">Bluetooth:</div>
+					<strong>{{ product.get_bluetooth_display }}</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">GPS:</div>
+					<strong><i class="fa {{ product.gps|yesno:'fa-check,fa-times' }}"></i></strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "Dimensions" %}:</div>
+					<strong>{{ product.width }} mm (w) &times; {{ product.height }} mm (h)</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "Weight" %}:</div>
+					<strong>{{ product.weight }} g</strong>
+				</li>
+				<li class="list-group-item d-flex">
+					<div class="w-50">{% trans "Screen size" %}:</div>
+					<strong>{{ product.screen_size }} ({% trans "inch" %})</strong>
+				</li>
+			</ul>
+
+			<!-- include "Add to Cart" dialog box -->
+			{% include "myshop/catalog/smartphone-add2cart.html" with use_modal_dialog=True card_css_classes="mb-3" %}
+		</div>
+	</div>
+</div>
+
+{% include "shop/catalog/bsp-scrollpanel.tmpl.html" %}
+
+{% endblock main-content %}

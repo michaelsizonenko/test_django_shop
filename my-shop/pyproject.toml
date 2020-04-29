@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "My-SHOP"
+version = "1.0.0"
+description = "Blueprint for an e-commerce site based on django-SHOP"
+license = "MIT"
+authors = ["Michael"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+django = "<3"
+djangocms-cascade = "*"
+django-allauth = "*"
+django-angular = "*"
+django-filer = "*"
+django-ipware = "*"
+django-sass-processor = "*"
+django-select2 = "*"
+django-filter = "*"
+django-haystack = "*"
+drf-haystack = "*"
+django-parler = "*"
+django-parler-rest = "*"
+djangorestframework = "*"
+django-rest-auth = "*"
+django_polymorphic = "*"
+django-admin-sortable2 = "*"
+django-fsm = "*"
+django-fsm-admin = "*"
+django-phonenumber-field = "*"
+django-post_office = "*"
+phonenumbers = "*"
+djangocms-bootstrap = "*"
+elasticsearch = "<1.8"
+libsass = "*"
+django-shop = "<1.2"
+djangoshop-stripe = "*"  
+stripe = "<1.54"
+djangoshop-sendcloud = "*"  
+[dev-packages]
+tox = "*"
+pytest = "*"
+pytest-django = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+factory-boy = "*"
+pytest-factoryboy = "*"
+autopep8 = "*"
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

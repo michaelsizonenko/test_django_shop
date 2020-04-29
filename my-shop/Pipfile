@@ -1,0 +1,49 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "<3"
+djangocms-cascade = "*"
+django-allauth = "*"
+django-angular = "*"
+django-filer = "*"
+django-ipware = "*"
+django-sass-processor = "*"
+django-select2 = "*"
+django-filter = "*"
+django-haystack = "*"
+drf-haystack = "*"
+django-parler = "*"
+django-parler-rest = "*"
+djangorestframework = "*"
+django-rest-auth = "*"
+django_polymorphic = "*"
+django-admin-sortable2 = "*"
+django-fsm = "*"
+django-fsm-admin = "*"
+django-phonenumber-field = "*"
+django-post_office = "*"
+phonenumbers = "*"
+djangocms-bootstrap = "*"
+elasticsearch = "<1.8"
+libsass = "*"
+django-shop = "<1.2"
+djangoshop-stripe = "*"  
+stripe = "<1.54"
+djangoshop-sendcloud = "*"  
+[dev-packages]
+tox = "*"
+pytest = "*"
+pytest-django = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+factory-boy = "*"
+pytest-factoryboy = "*"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

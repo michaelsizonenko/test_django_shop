@@ -1,0 +1,5 @@
+[run]
+include = my-shop/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

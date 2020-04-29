@@ -1,0 +1,14 @@
+@import "shop/css/variables";
+
+// header
+$body-header-height: 50px;
+$body-header-lg-height: 90px;
+
+// footer
+$body-footer-margin: 1rem;
+$body-footer-color: $white;
+$body-footer-bg: $gray-900;
+$body-footer-border: $gray-900;
+$body-footer-link-color: darken($body-footer-color, 15%);
+$body-footer-link-hover-color: $body-footer-color;
+$body-footer-link-active-color: $body-footer-color;

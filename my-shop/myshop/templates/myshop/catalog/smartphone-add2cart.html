@@ -1,0 +1,18 @@
+{% extends "shop/catalog/available-product-add2cart.html" %}
+{% load i18n %}
+
+{% block add-to-cart-url %}{{ product.get_absolute_url }}/add-smartphone-to-cart{% endblock %}
+
+{% block available-quantity-in-stock %}
+<div class="d-flex flex-column">
+	<label for="product_code">{% trans "Internal Storage" %}</label>
+	<select class="form-control" name="product_code" ng-model="context.product_code" ng-change="updateContext()" >
+	{% for smartphone in product.variants.all %}
+		<option value="{{ smartphone.product_code }}">
+		{% if smartphone.storage == 0 %}{% trans "Pluggable" %}{% else %}{{ smartphone.storage }} GB{% endif %}
+		</option>
+	{% endfor %}
+	</select>
+</div>
+	{{ block.super }}
+{% endblock %}
